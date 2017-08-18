@@ -20,7 +20,7 @@ class StudentController extends Controller
 
   public function index()
   {
-    echo "in index";
+    echo $app::method;
     $user =   $this->user->delete();
     $this->view('home/index', $user);
   }

@@ -4,7 +4,7 @@ class App
 {
 
   protected $controller = 'student';
-  protected $method = 'index';
+  public static $method = 'index';
   protected $params = [];
 
   public function __construct()
@@ -26,7 +26,7 @@ class App
     {
       if(method_exists($this->controller, $url[1]))
       {
-        $this->method =$url[1] ;
+        self::$method =$url[1] ;
         unset($url[1]);
       }
     }
@@ -34,7 +34,7 @@ class App
 
     $this->params = $url ? array_values($url) : [] ;
 //    print_r($this->params);
-    call_user_func_array([$this->controller, $this->method], $this->params);
+    call_user_func_array([$this->controller, self::$method], $this->params);
   }
 
   public function parseUrl()
