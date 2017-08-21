@@ -1,10 +1,10 @@
 <?php
-
+require_once'../app/models/Student.php';
 class App
 {
 
   protected $controller = 'student';
-  public static $method = 'index';
+  protected $method = '';
   protected $params = [];
 
   public function __construct()
@@ -19,22 +19,21 @@ class App
     }
     require_once'../app/controllers/'.$this->controller .'.php' ;
 
-    $this->controller = new $this->controller;
-//    var_dump($this->controller);
-
     if(isset($url[1]))
-    {
-      if(method_exists($this->controller, $url[1]))
       {
-        self::$method =$url[1] ;
-        unset($url[1]);
+          $this->method = $url[1] ;
+          unset($url[1]);
       }
-    }
-  //  print_r($url);
-
     $this->params = $url ? array_values($url) : [] ;
-//    print_r($this->params);
-    call_user_func_array([$this->controller, self::$method], $this->params);
+
+    $this->controller = new $this->controller($this->method, $this->params);
+    //  var_dump($this->controller);
+
+    //print_r($url);
+
+
+    //print_r($this->params);
+    //call_user_func_array([$this->controller, self::$method], $this->params);
   }
 
   public function parseUrl()

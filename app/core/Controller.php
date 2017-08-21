@@ -7,7 +7,7 @@ class Controller
     echo $model;
     if(file_exists('../app/models/'. $model . '.php'))
     {
-      echo "yes<br>";
+      //echo "yes<br>";
       require_once '../app/models/'. $model . '.php';
     }
 
@@ -17,7 +17,7 @@ class Controller
 
   public function view($view, $data = [] )
   {
-    require_once'../app/views/' . $view . '.php';
+    //require_once'../app/views/' . $view . '.php';
 
   }
 }

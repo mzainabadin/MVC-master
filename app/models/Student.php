@@ -10,6 +10,7 @@ class Student extends Eloquent
   protected $fillable = ['name'];
   public function add()
   {
+    echo'calling add function';
       return $user = Student::create(['name' => 'Flight']);
 
   }
