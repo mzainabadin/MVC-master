@@ -13,17 +13,15 @@ class teacherController extends Controller
 
   public function __construct($methodName,$params)
   {
-    //require_once '../app/models/'. $model . '.php';
     $this->user = $this->model('Teacher');
     // calling index that checks if method exists
     $this-> index($methodName,$params);
-
   }
 
 
   public function index($methodName,$params)
   {
-    echo 'INdex function is working';
+    echo 'Index function is working';
     if(method_exists($this->user, $methodName))
     {
       echo 'Function exists';
@@ -36,7 +34,6 @@ class teacherController extends Controller
       echo 'method does not exist';
     }
   }
-
 }
 
  ?>

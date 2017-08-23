@@ -29,10 +29,7 @@ class Student extends Eloquent
   public function listTable($param)
   {
     $users = Student::all();
-  //  foreach ($users as $key) {
-  //           echo $key->id . "<br>";
-  return $users;
-    //print_r($users);
+    return $users;
   }
 
 

@@ -29,13 +29,6 @@ class App
     $this->params = $url ? array_values($url) : [] ;
 
     $this->controller = new $this->controller($this->method, $this->params);
-    //  var_dump($this->controller);
-
-    //print_r($url);
-
-
-    //print_r($this->params);
-    //call_user_func_array([$this->controller, self::$method], $this->params);
   }
 
   public function parseUrl()

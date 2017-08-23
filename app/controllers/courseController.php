@@ -18,9 +18,6 @@ class StudentController extends Controller
     $this->user = $this->model('Teacher');
     // calling index that checks if method exists
     $this-> index($methodName,$params);
-
-
-
   }
 
 
@@ -33,17 +30,11 @@ class StudentController extends Controller
       $user =   $this->user->$methodName($params);
       //$this->view('home/index', $user);
       $this->view('listtable',  $user);
-
-    //  self::$method =$url[1] ;
-    //  unset($url[1]);
     }
     else
     {
       echo 'method does not exist';
     }
-
-    //$user =   $this->user->delete();
-    //$this->view('home/index', $user);
   }
 
 }

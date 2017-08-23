@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Student Edit</h1>
+
+<script>
+function process()
+{
+
+var url="http://localhost/MVC-master/public/studentController/edit/students/"
+  + document.getElementById("url0").value +"/"
+  + document.getElementById("url1").value + "/"
+  + document.getElementById("url2").value "/"
+  + document.getElementById("url3\").value ;
+
+location.href=url;
+return false;
+}
+</script>
+
+
+
+<form onSubmit="return process();">
+AttributeName: <input type="text" name="AttributeName" id="url0"><br>
+Where: <input type="text" name="Where" id="url1"><br>
+AttributeName: <input type="text" name="AttributeName" id="url2"><br>
+NewValue: <input type="text" name="NewValue" id="url3"><br>
+ <input type="submit" value="go">
+</form>
+
+</body>
+</html>

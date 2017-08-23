@@ -10,16 +10,16 @@ class Teacher extends Eloquent
 
   public function add($param)
   {
-    echo'calling add function';
-    print_r($param);
+    //echo'calling add function';
+    //print_r($param);
     return $user = Teacher::create([$param[0] => $param[1]]);
   }
 
 
   public function edit($param)
   {
-    echo'in echo function';
-    print_r($param);
+    //echo'in echo function';
+    //print_r($param);
     $user = Teacher::where($param[0],$param[1])
     ->update([$param[2] => $param[3]]);
     return $user;
@@ -29,10 +29,7 @@ class Teacher extends Eloquent
   public function listTable($param)
   {
     $users = Teacher::all();
-  //  foreach ($users as $key) {
-  //           echo $key->id . "<br>";
-  return $users;
-    //print_r($users);
+    return $users;
   }
 
 
@@ -42,6 +39,5 @@ class Teacher extends Eloquent
    return $user;
   }
 }
-
 
  ?>
