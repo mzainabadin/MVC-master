@@ -1,6 +1,6 @@
 
 <?php
-// foreach ($data as $key )
+//foreach ($data as $key )
 //{
 //     echo $key->name."<br>";
 //}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Student Add</h1>
+
+<script>
+function process()
+{
+  var url="http://localhost/MVC-master/public/" + "student" +"Controller/add/"
+    + document.getElementById("url0").value + "/"
+    + document.getElementById("url1").value;
+
+location.href=url;
+return false;
+}
+</script>
+
+
+<form onSubmit="return process();">
+AttributeName: <input type="text" name="AttributeName" id="url0"><br>
+AttributeValue: <input type="text" name="AttributeValue" id="url1"><br>
+ <input type="submit" value="go">
+</form>
+
+</body>
+</html>

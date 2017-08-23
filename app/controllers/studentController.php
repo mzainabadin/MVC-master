@@ -31,7 +31,8 @@ class StudentController extends Controller
     {
       echo 'Function exists';
       $user =   $this->user->$methodName($params);
-      $this->view('home/index', $user);
+      //$this->view('home/index', $user);
+      $this->view('listtable',  $user);
 
     //  self::$method =$url[1] ;
     //  unset($url[1]);

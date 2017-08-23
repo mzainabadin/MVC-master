@@ -1,0 +1,46 @@
+<?php
+
+ini_set("display_errors",true);
+error_reporting(E_ALL);
+use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Capsule\Manager as Capsule;
+class Course extends Eloquent
+{
+
+  protected $fillable = ['name'];
+
+  public function add($param)
+  {
+    echo'calling add function';
+    print_r($param);
+    return $user = Course::create([$param[0] => $param[1]]);
+  }
+
+
+  public function edit($param)
+  {
+    echo'in echo function';
+    print_r($param);
+    $user = Course::where($param[0],$param[1])
+    ->update([$param[2] => $param[3]]);
+    return $user;
+  }
+
+
+  public function listTable($param)
+  {
+    $users = Course::all();
+    return $users;
+    //print_r($users);
+  }
+
+
+  public function delete($param)
+  {
+   $user = Course::where($param[0], $param[1])->delete();
+   return $user;
+  }
+}
+
+
+ ?>

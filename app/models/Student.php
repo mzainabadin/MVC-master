@@ -5,30 +5,41 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Capsule\Manager as Capsule;
 class Student extends Eloquent
 {
-  //public $name;
 
   protected $fillable = ['name'];
-  public function add()
+
+  public function add($param)
   {
     echo'calling add function';
-      return $user = Student::create(['name' => 'Flight']);
-
+    print_r($param);
+    return $user = Student::create([$param[0] => $param[1]]);
   }
 
-  public function edit()
+
+  public function edit($param)
   {
-    $user = Student::where('name','samplename1')
-    ->update(['name'=> 'changed2']);
+    echo'in echo function';
+    print_r($param);
+    $user = Student::where($param[0],$param[1])
+    ->update([$param[2] => $param[3]]);
     return $user;
   }
-  public function listTable()
-  {
 
-  }
-  public function delete()
+
+  public function listTable($param)
   {
-    $user = Student::where('name', 'changed2')->delete();
-    return $user;
+    $users = Student::all();
+  //  foreach ($users as $key) {
+  //           echo $key->id . "<br>";
+  return $users;
+    //print_r($users);
+  }
+
+
+  public function delete($param)
+  {
+   $user = Student::where($param[0], $param[1])->delete();
+   return $user;
   }
 }
 

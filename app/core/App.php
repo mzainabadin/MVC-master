@@ -1,9 +1,11 @@
 <?php
 require_once'../app/models/Student.php';
+require_once'../app/models/Teacher.php';
+require_once'../app/models/Course.php';
 class App
 {
 
-  protected $controller = 'student';
+  protected $controller = '';
   protected $method = '';
   protected $params = [];
 
