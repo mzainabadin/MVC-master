@@ -1,27 +1,23 @@
 <?php
 require_once'../app/models/Course.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
-
 use Illuminate\Support\Facades\DB;
 ini_set("display_errors",true);
 error_reporting(E_ALL);
 
-class StudentController extends Controller
+class CourseController extends Controller
 {
 
-  protected $user;
+  public $model;
 
-  public function __construct($methodName,$params)
+  public function __construct()
   {
-    //require_once '../app/models/'. $model . '.php';
-
-    $this->user = $this->model('Teacher');
-    // calling index that checks if method exists
-    $this-> index($methodName,$params);
+    $this->model = 'Course';
+    return $this->model;
   }
 
 
-  public function index($methodName,$params)
+  /*public function index($methodName,$params)
   {
     echo 'INdex function is working';
     if(method_exists($this->user, $methodName))
@@ -36,7 +32,7 @@ class StudentController extends Controller
       echo 'method does not exist';
     }
   }
-
+*/
 }
 
  ?>
