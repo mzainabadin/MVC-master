@@ -1,11 +1,13 @@
 <?php
-namespace App\Config\Smarty;
 
-class SmartyTemplate extends \Smarty
+namespace App\Smarty;
+require_once('../app/smarty/Smarty.class.php');
+class SmartyTemplate extends Smarty
 {
-  function __construct()
+  public function __construct()
   {
-    $smarty_path = dirname(dirname(_DIR_)). DIRECTORY_SEPARATOR. 'smarty' . DIRECTORY_SEPARATOR;
+    parent::__construct();
+    $smarty_path = dirname(dirname(__DIR__)). DIRECTORY_SEPARATOR. 'Smarty' . DIRECTORY_SEPARATOR;
     $this->setTemplateDir($smarty_path . 'templates');
     $this->setCompileDir($smarty_path . 'templates_c');
     $this->setCacheDir($smarty_path . 'cache');
@@ -13,6 +15,4 @@ class SmartyTemplate extends \Smarty
   }
 
 }
-
-
  ?>

@@ -1,24 +1,23 @@
 <?php
+namespace App\Controllers;
+
+use App\Config\Smarty\SmartyTemplate ;
+
 
 class Controller
 {
-  public function model($model)
+  public function __construct()
   {
-    echo $model;
-    if(file_exists('../app/models/'. $model . '.php'))
-    {
-      //echo "yes<br>";
-      require_once '../app/models/'. $model . '.php';
-    }
-
-
-    return new $model();
+    $this->tpl = new SmartyTemplate;
   }
 
+/*
   public function view($view, $data = [] )
   {
     require_once'../app/views/home/Functions/' . $view . '.php';
   //  require_once '$view';
   }
+*/
+
 }
  ?>

@@ -1,34 +1,16 @@
 <?php
-require_once'../app/models/Student.php';
-require_once'../app/models/Teacher.php';
-require_once'../app/models/Course.php';
+require_once'ControllerFactory.php';
+
 class App
 {
-
   protected $controller = '';
-  protected $method = '';
-  protected $params = [];
 
   public function __construct()
   {
     $url = $this->parseUrl();
-    //print_r($url);
 
-    if(file_exists('../app/controllers/' . $url[0] . '.php'))
-    {
-      $this->controller = $url[0];
-      unset($url[0]);
-    }
-    require_once'../app/controllers/'.$this->controller .'.php' ;
+    $this->Controller = new ControllerFactory($url);
 
-    if(isset($url[1]))
-      {
-          $this->method = $url[1] ;
-          unset($url[1]);
-      }
-    $this->params = $url ? array_values($url) : [] ;
-
-    $this->controller = new $this->controller($this->method, $this->params);
   }
 
   public function parseUrl()
