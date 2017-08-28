@@ -2,13 +2,13 @@
 //namespace App\Controllers;
 
 //use App\Config\Smarty\SmartyTemplate ;
-require_once'../app/Config/Smarty/SmartyTemplate.php';
+//require_once'../app/Config/Smarty/SmartyTemplate.php';
 
 class Controller
 {
   public function __construct()
   {
-    $this->tpl = new SmartyTemplate;
+  //  $this->tpl = new SmartyTemplate;
   }
 
 /*

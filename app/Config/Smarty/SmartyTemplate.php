@@ -18,7 +18,7 @@ class SmartyTemplate extends Smarty
 }*/
 //namespace App\Config\Smarty;
 //require_once('../../smarty/Smarty.class.php');
-require_once('../app/smarty/Smarty.class.php');
+/*require_once('../app/smarty/Smarty.class.php');
 class SmartyTemplate extends \Smarty {
     function __construct() {
         parent::__construct();

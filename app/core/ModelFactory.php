@@ -8,6 +8,15 @@ class ModelFactory
   protected $controllerObj;
   public $user;
   public $model;
+  /**
+  *Constructor require the model and extract method name
+  * form URl.
+  *
+  *@param Object of the controller $controllerObj, Model name returned by controller $model
+  * URL as $url
+  *
+  *@return object of required model
+  **/
   public function __construct($controllerObj,$model,$url)
   {
     require_once'../app/models/' . $model . '.php';
@@ -16,16 +25,22 @@ class ModelFactory
           $this->method = $url[1] ;
           unset($url[1]);
       }
-    $this->params = $url ? array_values($url) : [] ;
-    $this->controllerObj = $controllerObj;
-    echo $this->method;
-    print_r ($this->params);
-    echo $model;
-    $this->model = new $model;
-    return $this->index($this->model,$this->method,$this->params);
+
+     $this->params = $url ? array_values($url) : [] ;
+     $this->controllerObj = $controllerObj;
+     $this->model = new $model;
+     $data = $this->index($this->model,$this->method,$this->params);
+     return $data;
   }
 
-
+  /**
+  *Index function calls the required mmethod
+  *
+  *@param Object of the controller $controllerObj, Model name returned by controller $model
+  * URL as $url
+  *
+  *@return object of method
+  **/
   public function index($model,$methodName,$params)
   {
     echo 'INdex function is working';
@@ -34,8 +49,8 @@ class ModelFactory
     {
       echo 'Function exists';
 
-      $this->model =   $model->$methodName($params);
-      return $this->model;
+      $data =   $model->$methodName($params);
+      return $data;
     }
     else
     {

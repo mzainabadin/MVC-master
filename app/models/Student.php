@@ -26,9 +26,10 @@ class Student extends Eloquent
   }
 
 
-  public function listTable($param)
+  public function listTable()
   {
     $users = Student::all();
+  //  print_r($users);
     return $users;
   }
 
