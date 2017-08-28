@@ -1,10 +1,8 @@
 <?php
-
 ini_set("display_errors",true);
 error_reporting(E_ALL);
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Capsule\Manager as Capsule;
-
 class Course extends Eloquent
 {
 
@@ -32,7 +30,6 @@ class Course extends Eloquent
   {
     $users = Course::all();
     return $users;
-    //print_r($users);
   }
 
 

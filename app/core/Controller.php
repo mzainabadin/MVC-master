@@ -1,8 +1,8 @@
 <?php
-namespace App\Controllers;
+//namespace App\Controllers;
 
-use App\Config\Smarty\SmartyTemplate ;
-
+//use App\Config\Smarty\SmartyTemplate ;
+require_once'../app/Config/Smarty/SmartyTemplate.php';
 
 class Controller
 {

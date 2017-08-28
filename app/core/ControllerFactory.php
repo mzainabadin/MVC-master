@@ -1,6 +1,6 @@
 <?php
 require_once'ModelFactory.php';
-
+require_once'Controller.php';
 class ControllerFactory
 {
   protected $controller = '';
