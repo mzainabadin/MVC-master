@@ -43,12 +43,10 @@ class ModelFactory
   **/
   public function index($model,$methodName,$params)
   {
-    echo 'INdex function is working';
-
+    //echo 'INdex function is working';
     if(method_exists($model, $methodName))
     {
-      echo 'Function exists';
-
+      //echo 'Function exists';
       $data =   $model->$methodName($params);
       return $data;
     }
@@ -58,7 +56,4 @@ class ModelFactory
     }
   }
 }
-
-
-
  ?>

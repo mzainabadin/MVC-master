@@ -8,9 +8,7 @@ class App
   public function __construct()
   {
     $url = $this->parseUrl();
-
     $this->Controller = new ControllerFactory($url);
-
   }
 
   public function parseUrl()

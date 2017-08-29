@@ -36,10 +36,7 @@ class ControllerFactory
     $data = new ModelFactory($this->controller,$this->modelName,$url);
 
     $this->smrt =new SmartyHeader();
-
     $this->smrt->smarty->assign('user',$data);
-    echo $url[1];
-    echo $this->modelName;
     $this->smrt->smarty->display("../app/views/templates/".$url[1].$this->modelName.".tpl");
 
   }
