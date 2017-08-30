@@ -7,10 +7,10 @@ class App
 
   public function __construct()
   {
-    $url = $this->parseUrl();
-    $this->Controller = new ControllerFactory($url);
+  //  $url = $this->parseUrl();
+    $this->Controller = new ControllerFactory($_POST);
   }
-
+/*
   public function parseUrl()
   {
     if(isset($_GET['url']))
@@ -18,7 +18,7 @@ class App
       return $url = explode('/',filter_var(rtrim($_GET['url'],'/'),FILTER_SANITIZE_URL));
     }
 
-  }
+  }*/
 }
 
  ?>
