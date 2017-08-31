@@ -6,9 +6,11 @@
     {if $error ne ""}
       <tr>
       <td bgcolor="yellow" colspan="2">
-      {if $error eq "name_empty"}You must supply a name.
-      {elseif $error eq "comment_empty"} You must supply a comment.
-      {/if}
+        {if $error eq "Param1_empty"}You must supply all parameters
+        {elseif $error eq "Param2_empty"} You must supply all parameters
+        {elseif $error eq "Param3_empty"} You must supply all parameters
+        {elseif $error eq "Param4_empty"} You must supply all parameters
+        {/if}
       </td>
       </tr>
     {/if}
@@ -38,9 +40,5 @@
     </tr>
   </table>
   <input type="submit" value="Submit">
-<script type="text/javascript">
-var abc = document.getElementById("Param1");
-</script>
-
 
 </form>

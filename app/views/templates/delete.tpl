@@ -6,8 +6,8 @@
     {if $error ne ""}
       <tr>
       <td bgcolor="yellow" colspan="2">
-      {if $error eq "Param1_empty"}You must supply all parameters
-      {elseif $error eq "Param2_empty"} You must supply all parameters
+        {if $error eq "Param1_empty"}You must supply all parameters
+        {elseif $error eq "Param2_empty"} You must supply all parameters
       {/if}
       </td>
       </tr>
@@ -19,7 +19,7 @@
       </td>
     </tr>
     <tr>
-      <td valign="top">Enter Record to add:</td>
+      <td valign="top">Where:</td>
       <td>
           <textarea name="Param2">{$post.Comment|escape}</textarea>
       </td>

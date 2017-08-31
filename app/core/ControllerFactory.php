@@ -21,44 +21,53 @@ class ControllerFactory
   *
   *@return object of required model
   **/
-  public function __construct($post = null)
+  public function __construct($post = null,$get = null )
   {
+    session_start();
+
     $this->smrt =new SmartyHeader();
     $this->smrt->smarty->display("../app/views/templates/select.tpl");
 
-  //  if(isset($post["model"])) echo "Model is set\n" . $post["model"];
-  //  if(isset($post["method"])) echo "method is set\n" . $post["method"];
-
-    $this->method = $post["method"];
-    $this->model = $post["model"];
-    // unset($post);
-    $this->smrt->smarty->display("../app/views/templates/".$this->method . ".tpl");
-    echo "param is set\n" . $post["Param1"];
-
-
-
-
-/*
-    if(file_exists('../app/controllers/' . $url[0] . '.php'))
+    if (!empty($post["model"]))
     {
-      $this->controller = $url[0];
-      unset($url[0]);
+    $_SESSION['model'] =  $post["model"];
     }
 
-    require_once'../app/controllers/'.$this->controller .'.php' ;
+    if (!empty($post["method"]))
+    {
+    $_SESSION['method'] =  $post["method"];
+    }
+
+    $this->smrt->smarty->display("../app/views/templates/".$_SESSION['method'] . ".tpl");
+    $url = $post;
+    /*
+    if(isset($_SESSION['model']) && !empty(isset($_SESSION['model'])))
+    echo "model".$_SESSION['model']." exist";
+    else
+    echo "MODEL not set" ;
+    */
+    if(file_exists('../app/controllers/' . $_SESSION['model'] . 'Controller.php'))
+    {
+      $this->controller = $_SESSION['model']."Controller";
+      require_once'../app/controllers/'.$this->controller .'.php' ;
+    }
 
     $this->controller= new $this->controller;
-
     $this->modelName = $this->controller->getMethod();
-    $data = new ModelFactory($this->controller,$this->modelName,$url);
+    $data = new ModelFactory($this->controller,$this->modelName,$_SESSION['method'],$url);
 
-    $this->smrt =new SmartyHeader();
-    $this->smrt->smarty->assign('user',$data);
-    //$this->smrt->smarty->display("../app/views/templates/".$url[1].$this->modelName.".tpl");
-    $this->smrt->smarty->display("../app/views/templates/edit.tpl");
-    */
+    $this->view($data);
   }
 
+
+
+
+  public function view($data)
+  {
+        $smrt =new SmartyHeader();
+        $smrt->smarty->assign('user',$data);
+        $this->smrt->smarty->display("../app/views/templates/listTableStudent.tpl");
+  }
 }
 
 ?>

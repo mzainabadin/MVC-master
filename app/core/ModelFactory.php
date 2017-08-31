@@ -17,17 +17,17 @@ class ModelFactory
   *
   *@return object of required model
   **/
-  public function __construct($controllerObj,$model,$url)
+  public function __construct($controllerObj,$model,$method,$url)
   {
     require_once'../app/models/' . $model . '.php';
-    if(isset($url[1]))
-      {
-          $this->method = $url[1] ;
-          unset($url[1]);
-      }
+    if(isset($method))
+    {
+      $this->method = $method ;
+    }
 
      $this->params = $url ? array_values($url) : [] ;
      $this->controllerObj = $controllerObj;
+
      $this->model = new $model;
      $data = $this->index($this->model,$this->method,$this->params);
      return $data;
@@ -43,10 +43,8 @@ class ModelFactory
   **/
   public function index($model,$methodName,$params)
   {
-    //echo 'INdex function is working';
     if(method_exists($model, $methodName))
     {
-      //echo 'Function exists';
       $data =   $model->$methodName($params);
       return $data;
     }

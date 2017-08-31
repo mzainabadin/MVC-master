@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-30 17:43:00
+/* Smarty version 3.1.30, created on 2017-08-30 19:18:31
   from "/var/www/html/MVC-master/app/views/templates/edit.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59a6b2d4cf54d7_80534183',
+  'unifunc' => 'content_59a6c93735daa8_36394694',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'affa42c7ce586ba97c30c996be064239ada6925d' => 
     array (
       0 => '/var/www/html/MVC-master/app/views/templates/edit.tpl',
-      1 => 1504096950,
+      1 => 1504102682,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59a6b2d4cf54d7_80534183 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59a6c93735daa8_36394694 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
@@ -66,12 +66,6 @@ function content_59a6b2d4cf54d7_80534183 (Smarty_Internal_Template $_smarty_tpl)
     </tr>
   </table>
   <input type="submit" value="Submit">
-<?php echo '<script'; ?>
- type="text/javascript">
-var abc = document.getElementById("Param1");
-<?php echo '</script'; ?>
->
-
 
 </form>
 <?php }
