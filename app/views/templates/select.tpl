@@ -15,7 +15,8 @@
     <tr>
       <td>Entity:</td>
       <td>
-        <select name="model" required>
+        <select name="model">
+          <option></option>
           <option value="student">student</option>
           <option value="course">course</option>
           <option value="teacher">teacher</option>
@@ -25,7 +26,8 @@
     <tr>
       <td valign="top">Method:</td>
       <td>
-        <select name="method" required>
+        <select name="method">
+          <option></option>
           <option value="add">Add a record</option>
           <option value="delete">delete a record</option>
           <option value="edit">edit a record</option>

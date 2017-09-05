@@ -21,19 +21,19 @@
       </td>
     </tr>
     <tr>
-      <td valign="top">Enter Record to add:</td>
+      <td valign="top">Where:</td>
       <td>
           <textarea name="Param2">{$post.Comment|escape}</textarea>
       </td>
     </tr>
     <tr>
-      <td valign="top">Enter Record to add:</td>
+      <td valign="top">Attribute name to be editted:</td>
       <td>
           <textarea name="Param3">{$post.Comment|escape}</textarea>
       </td>
     </tr>
     <tr>
-      <td valign="top">Enter Record to add:</td>
+      <td valign="top">Enter updated value:</td>
       <td>
           <textarea name="Param4">{$post.Comment|escape}</textarea>
       </td>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-30 15:26:36
+/* Smarty version 3.1.30, created on 2017-08-31 19:17:44
   from "/var/www/html/MVC-master/app/views/templates/select.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59a692dcb53092_69414780',
+  'unifunc' => 'content_59a81a88867cf4_86016736',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '06543481db932c7215704e5827ba6e0fb3c554ce' => 
     array (
       0 => '/var/www/html/MVC-master/app/views/templates/select.tpl',
-      1 => 1504086473,
+      1 => 1504189062,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59a692dcb53092_69414780 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59a81a88867cf4_86016736 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
@@ -39,7 +39,8 @@ function content_59a692dcb53092_69414780 (Smarty_Internal_Template $_smarty_tpl)
     <tr>
       <td>Entity:</td>
       <td>
-        <select name="model" required>
+        <select name="model">
+          <option></option>
           <option value="student">student</option>
           <option value="course">course</option>
           <option value="teacher">teacher</option>
@@ -49,7 +50,8 @@ function content_59a692dcb53092_69414780 (Smarty_Internal_Template $_smarty_tpl)
     <tr>
       <td valign="top">Method:</td>
       <td>
-        <select name="method" required>
+        <select name="method">
+          <option></option>
           <option value="add">Add a record</option>
           <option value="delete">delete a record</option>
           <option value="edit">edit a record</option>

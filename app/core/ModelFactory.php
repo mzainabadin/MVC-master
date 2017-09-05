@@ -17,23 +17,27 @@ class ModelFactory
   *
   *@return object of required model
   **/
-  public function __construct($controllerObj,$model,$method,$url)
+  public function __construct($arr,$url)
   {
-    require_once'../app/models/' . $model . '.php';
-    if(isset($method))
+    $this->model = ucfirst($arr[0]);
+    $this->method = $arr[1];
+    echo $this->model;
+
+    require_once'../app/models/' . $this->model . '.php';
+
+    if(isset($this->method))
     {
-      $this->method = $method ;
+      $this->method = $this->method ;
     }
 
      $this->params = $url ? array_values($url) : [] ;
-     $this->controllerObj = $controllerObj;
+     //$this->controllerObj = $controllerObj;
 
-     $this->model = new $model;
-     $data = $this->index($this->model,$this->method,$this->params);
-     return $data;
-  }
-
-  /**
+     $this->model = new $this->model;
+    // $data = $this->index($this->model,$this->method,$this->params);
+     //return $data;
+}
+  /*s*
   *Index function calls the required mmethod
   *
   *@param Object of the controller $controllerObj, Model name returned by controller $model
@@ -41,11 +45,13 @@ class ModelFactory
   *
   *@return object of method
   **/
-  public function index($model,$methodName,$params)
+  public function index($models,$methodName,$params)
   {
-    if(method_exists($model, $methodName))
+    if(method_exists($models, $methodName))
     {
-      $data =   $model->$methodName($params);
+      echo $methodName."<br>";
+      $data =  $this->model->$methodName($params);
+      echo " is again data ".$data . "<br>";
       return $data;
     }
     else

@@ -1,6 +1,5 @@
 <?php
-ini_set("display_errors",true);
-error_reporting(E_ALL);
+
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Capsule\Manager as Capsule;
 class Teacher extends Eloquent
@@ -10,8 +9,6 @@ class Teacher extends Eloquent
 
   public function add($param)
   {
-    //echo'calling add function';
-    //print_r($param);
     return $user = Teacher::create([$param[0] => $param[1]]);
   }
 

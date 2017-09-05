@@ -1,15 +1,5 @@
-
 {if isset($user)}
- <span>Student Record Added Successfully </span>
-
- {foreach from =$user item =i }
-  <span>Student Record </span>
-  <tr style="background: {cycle values='silver ,gray'} " >
-     <td> {$i->id}</td>
-     <td> {$i->name}</td>
-  </tr>
- {/foreach}
-
+<span>Student Record has been Created Successfully </span>
 {else}
- <span>Student record not added </span>
+<span>Student Record has not been Created </span>
 {/if}

@@ -5,10 +5,14 @@ class App
 {
   protected $controller = '';
 
+
   public function __construct()
   {
   //  $url = $this->parseUrl();
-    $this->Controller = new ControllerFactory($_REQUEST);
+
+    $this->Controller = new ControllerFactory();
+    $this->Controller->callcontrol();
+
   }
 /*
   public function parseUrl()

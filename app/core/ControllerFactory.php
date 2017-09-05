@@ -23,51 +23,33 @@ class ControllerFactory
   **/
   public function __construct($post = null,$get = null )
   {
-    session_start();
-
-    $this->smrt =new SmartyHeader();
-    $this->smrt->smarty->display("../app/views/templates/select.tpl");
-
-    if (!empty($post["model"]))
+    if (isset($_SESSION))
     {
-    $_SESSION['model'] =  $post["model"];
+      unset($_SESSION);
+      session_unset();
+      session_destroy();
     }
-
-    if (!empty($post["method"]))
-    {
-    $_SESSION['method'] =  $post["method"];
-    }
-
-    $this->smrt->smarty->display("../app/views/templates/".$_SESSION['method'] . ".tpl");
-    $url = $post;
-    /*
-    if(isset($_SESSION['model']) && !empty(isset($_SESSION['model'])))
-    echo "model".$_SESSION['model']." exist";
-    else
-    echo "MODEL not set" ;
-    */
-    if(file_exists('../app/controllers/' . $_SESSION['model'] . 'Controller.php'))
-    {
-      $this->controller = $_SESSION['model']."Controller";
-      require_once'../app/controllers/'.$this->controller .'.php' ;
-    }
-
-    $this->controller= new $this->controller;
-    $this->modelName = $this->controller->getMethod();
-    $data = new ModelFactory($this->controller,$this->modelName,$_SESSION['method'],$url);
-
-    $this->view($data);
   }
-
-
-
-
-  public function view($data)
+  public function callcontrol($post = null,$get = null )
   {
-        $smrt =new SmartyHeader();
-        $smrt->smarty->assign('user',$data);
-        $this->smrt->smarty->display("../app/views/templates/listTableStudent.tpl");
+    session_start();
+    $this->controller = new controller;
+    $arr = $this->controller->view1($_POST,$_GET);
+    print_r($arr);
+    if( (isset($arr[0])) && (isset($arr[1])) )
+    {
+      if($arr[1]!='listTable')
+      {
+        $url = $this->controller->view2($_POST,$arr);
+      }
+      if (array_key_exists('Param1', $url) || $arr[1] ='listTable')
+      {
+        $data = $this->controller->getcontroller($url,$arr);
+        $this->controller->view($data);
+      }
+    }
+
+    unset($_POST);
   }
 }
-
 ?>

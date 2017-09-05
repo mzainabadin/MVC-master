@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-31 12:34:53
+/* Smarty version 3.1.30, created on 2017-08-31 18:18:12
   from "/var/www/html/MVC-master/app/views/templates/editStudent.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59a7bc1d82efc0_34542862',
+  'unifunc' => 'content_59a80c940707c9_44351733',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'de926f9050d261fe8c9bad0d2013029deed8c936' => 
     array (
       0 => '/var/www/html/MVC-master/app/views/templates/editStudent.tpl',
-      1 => 1504000050,
+      1 => 1504179136,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59a7bc1d82efc0_34542862 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59a80c940707c9_44351733 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_cycle')) require_once '/var/www/html/MVC-master/app/smarty/plugins/function.cycle.php';
 ?>
 
