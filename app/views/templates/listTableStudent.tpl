@@ -19,6 +19,14 @@
           <input type="submit" value="delete">
       </form>
     </td>
+
+    <td>
+      <form method="post" action="">
+          <input type="hidden" name="id" value="{$i->id}"/>
+          <input type="hidden" name="method" value="add"/>
+          <input type="submit" value="add">
+      </form>
+    </td>
  </tr>
 {/foreach}
 

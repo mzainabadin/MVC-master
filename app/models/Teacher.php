@@ -15,13 +15,11 @@ class Teacher extends Eloquent
 
   public function edit($param)
   {
-    //echo'in echo function';
-    //print_r($param);
-    $user = Teacher::where($param[0],$param[1])
-    ->update([$param[2] => $param[3]]);
+
+    $user = Student::where('id',$param[0])
+    ->update(['name' => $param[1]]);
     return $user;
   }
-
 
   public function listTable($param)
   {
@@ -32,7 +30,7 @@ class Teacher extends Eloquent
 
   public function delete($param)
   {
-   $user = Teacher::where($param[0], $param[1])->delete();
+   $user = Teacher::where('id', $param[0])->delete();
    return $user;
   }
 }

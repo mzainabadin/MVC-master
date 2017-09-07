@@ -11,7 +11,6 @@ class App
   //  $url = $this->parseUrl();
 
     $this->Controller = new ControllerFactory();
-    $this->Controller->callcontrol();
 
   }
 /*

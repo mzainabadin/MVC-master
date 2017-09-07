@@ -8,7 +8,7 @@ class Student extends Eloquent
 
   public function add($param)
   {
-    $user = Student::create([$param[0] => $param[1]]);
+    $user = Student::create(['name' => $param[1]]);
 
     return $user;
   }

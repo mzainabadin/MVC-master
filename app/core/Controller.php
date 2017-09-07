@@ -1,7 +1,8 @@
 <?php
 require_once'ModelFactory.php';
-require_once'Controller.php';
+require_once'baseController.php';
 require_once'SmartyHeader.php';
+
 
 class Controller
 {
@@ -15,60 +16,37 @@ class Controller
 
   public function __construct()
   {
-
+      session_start();
   }
 
-  public function view1($post = null,$get = null)
+  public function callcontrol($post = null,$get = null )
   {
-    $this->smrt =new SmartyHeader();
-    $this->smrt->smarty->display("../app/views/templates/select.tpl");
-
-    if (!empty($post["model"]))
+    $this->controller = new baseController;
+    $arr = $this->controller->view1($_POST,$_GET);
+    if($_POST<>array())
     {
-    $_SESSION['model'] =  $post["model"];
-    }
-    return array($_SESSION['model']);
-  }
-
-  public function getcontroller($url,$arr)
-  {
-    if(file_exists('../app/controllers/' . $arr[0] . 'Controller.php'))
-    {
-      $this->controller = $arr[0]."Controller";
-      require_once'../app/controllers/'.$this->controller .'.php' ;
-      $this->controller = ucfirst($this->controller);
-
-      $this->controller = new $this->controller;
-
-      $this->modelName = $this->controller->getMethod();
-      if(!isset($arr[1]))
+      if( (isset($arr[0])))
       {
-        $arr[1] = 'listTable';
+        $data = $this->controller->getcontroller($url,$arr);
+        $this->controller->view($data);
       }
 
-      $da = new ModelFactory($arr,$url);
-      $pa = $url ? array_values($url) : [] ;
+      $_SESSION['id'] =  $_POST["id"];
+      $arr[1] = $_POST[method];
 
-      $data =  $da->index($arr[0],$arr[1],$pa);
-      return $data;
+      if(isset($_POST[id]))
+      {
+        $this->controller->view2($_SESSION['id'], $_POST[method]);
+        $url = array($_POST['id'],$_POST[Param1]);
+        $arr[1]= $_POST[method];
+        $data = $this->controller->getcontroller($url,$arr);
+        unset($arr[1]);
+
+        $data = $this->controller->getcontroller($url,$arr);
+        $this->controller->view($data);
+      }
+
     }
-  }
-  public function view2($id, $method)
-  {
-    echo ob_get_clean();
-    flush();
-    ob_start(); 
-    $this->smrt->smarty->assign('id',$id);
-    $this->smrt->smarty->assign('method',$method);
-    $this->smrt->smarty->display("../app/views/templates/". $method .".tpl");
-
-  }
-
-  public function view($data)
-  {
-    require_once'../app/views/templates/listTableStudent.tpl';
-    $this->smrt->smarty->assign('user',$data);
-    $this->smrt->smarty->display("../app/views/templates/listTableStudent.tpl");
   }
 }
 
