@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-31 16:31:11
+/* Smarty version 3.1.30, created on 2017-09-06 11:51:27
   from "/var/www/html/MVC-master/app/views/templates/edit.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59a7f37f604638_12111975',
+  'unifunc' => 'content_59af9aefca1414_72251676',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'affa42c7ce586ba97c30c996be064239ada6925d' => 
     array (
       0 => '/var/www/html/MVC-master/app/views/templates/edit.tpl',
-      1 => 1504179045,
+      1 => 1504680682,
       2 => 'file',
     ),
   ),
@@ -20,55 +20,38 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59a7f37f604638_12111975 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59af9aefca1414_72251676 (Smarty_Internal_Template $_smarty_tpl) {
+if (!is_callable('smarty_function_cycle')) require_once '/var/www/html/MVC-master/app/smarty/plugins/function.cycle.php';
+?>
+
+<table>
+<span>Student Record </span>
+<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['user']->value, 'i');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['i']->value) {
+?>
+ <tr style="background: <?php echo smarty_function_cycle(array('values'=>'silver ,gray'),$_smarty_tpl);?>
+ " >
+    <td> <?php echo $_smarty_tpl->tpl_vars['i']->value->id;?>
+</td>
+    <td> <?php echo $_smarty_tpl->tpl_vars['i']->value->name;?>
+</td>
+    <td>
+      <form method="post" action="">
+      <input type="hidden" name="id" value="<?php echo $_smarty_tpl->tpl_vars['i']->value->id;?>
+"/>
+      <input type="submit" value="Edit">
+      </form>
+    <td>
+ </tr>
+<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
 
-
-<form action="" method="post">
-  <table border="1">
-    <?php if ($_smarty_tpl->tpl_vars['error']->value != '') {?>
-      <tr>
-      <td bgcolor="yellow" colspan="2">
-        <?php if ($_smarty_tpl->tpl_vars['error']->value == "Param1_empty") {?>You must supply all parameters
-        <?php } elseif ($_smarty_tpl->tpl_vars['error']->value == "Param2_empty") {?> You must supply all parameters
-        <?php } elseif ($_smarty_tpl->tpl_vars['error']->value == "Param3_empty") {?> You must supply all parameters
-        <?php } elseif ($_smarty_tpl->tpl_vars['error']->value == "Param4_empty") {?> You must supply all parameters
-        <?php }?>
-      </td>
-      </tr>
-    <?php }?>
-    <tr>
-      <td>Attribute Name:</td>
-      <td>
-        <textarea name="Param1" id="Param1"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['post']->value['Comment'], ENT_QUOTES, 'UTF-8', true);?>
-</textarea>
-      </td>
-    </tr>
-    <tr>
-      <td valign="top">Where:</td>
-      <td>
-          <textarea name="Param2"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['post']->value['Comment'], ENT_QUOTES, 'UTF-8', true);?>
-</textarea>
-      </td>
-    </tr>
-    <tr>
-      <td valign="top">Attribute name to be editted:</td>
-      <td>
-          <textarea name="Param3"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['post']->value['Comment'], ENT_QUOTES, 'UTF-8', true);?>
-</textarea>
-      </td>
-    </tr>
-    <tr>
-      <td valign="top">Enter updated value:</td>
-      <td>
-          <textarea name="Param4"><?php echo htmlspecialchars($_smarty_tpl->tpl_vars['post']->value['Comment'], ENT_QUOTES, 'UTF-8', true);?>
-</textarea>
-      </td>
-    </tr>
-  </table>
-  <input type="submit" value="Submit">
-
-</form>
+</table>
 <?php }
 }

@@ -23,33 +23,41 @@ class ControllerFactory
   **/
   public function __construct($post = null,$get = null )
   {
-    if (isset($_SESSION))
-    {
-      unset($_SESSION);
-      session_unset();
-      session_destroy();
-    }
+  //  if (isset($_SESSION))
+  //  {
+//      unset($_SESSION);
+  //    session_unset();
+  //    session_destroy();
+//    }
+      session_start();
   }
   public function callcontrol($post = null,$get = null )
   {
-    session_start();
     $this->controller = new controller;
     $arr = $this->controller->view1($_POST,$_GET);
-    print_r($arr);
-    if( (isset($arr[0])) && (isset($arr[1])) )
+    if($_POST<>array())
     {
-      if($arr[1]!='listTable')
-      {
-        $url = $this->controller->view2($_POST,$arr);
-      }
-      if (array_key_exists('Param1', $url) || $arr[1] ='listTable')
+      if( (isset($arr[0])))
       {
         $data = $this->controller->getcontroller($url,$arr);
         $this->controller->view($data);
       }
-    }
 
-    unset($_POST);
+      $_SESSION['id'] =  $_POST["id"];
+      $arr[1] = $_POST[method];
+
+      if(isset($_POST[id]))
+      {
+        $this->controller->view2($_SESSION['id'], $_POST[method]);
+        $url = array($_POST['id'],$_POST[Param1]);
+        $arr[1]= $_POST[method];
+        $data = $this->controller->getcontroller($url,$arr);
+        unset($arr[1]);
+        
+        $data = $this->controller->getcontroller($url,$arr);
+        $this->controller->view($data);}
+
+    }
   }
 }
 ?>

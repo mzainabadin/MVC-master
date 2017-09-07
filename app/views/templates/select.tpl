@@ -23,18 +23,6 @@
         </select>
       </td>
     </tr>
-    <tr>
-      <td valign="top">Method:</td>
-      <td>
-        <select name="method">
-          <option></option>
-          <option value="add">Add a record</option>
-          <option value="delete">delete a record</option>
-          <option value="edit">edit a record</option>
-              <option value="listTable">List Record</option>
-        </select>
-      </td>
-    </tr>
   </table>
 
   <input type="submit" value="Submit">

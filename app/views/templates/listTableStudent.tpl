@@ -5,14 +5,21 @@
  <tr style="background: {cycle values='silver ,gray'} " >
     <td> {$i->id}</td>
     <td> {$i->name}</td>
-    <td><input type="button" value="Edit" onclick="edit({$i->id});"></td>
+    <td>
+      <form method="post" action="">
+          <input type="hidden" name="id" value="{$i->id}"/>
+          <input type="hidden" name="method" value="edit"/>
+          <input type="submit" value="Edit">
+      </form>
+    </td>
+    <td>
+      <form method="post" action="">
+          <input type="hidden" name="id" value="{$i->id}"/>
+          <input type="hidden" name="method" value="delete"/>
+          <input type="submit" value="delete">
+      </form>
+    </td>
  </tr>
 {/foreach}
-<script>
-function edit(id)
-{
-  document.write(id);
-}
-</script>
 
 </table>

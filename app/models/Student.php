@@ -17,8 +17,8 @@ class Student extends Eloquent
   public function edit($param)
   {
 
-    $user = Student::where($param[0],$param[1])
-    ->update([$param[2] => $param[3]]);
+    $user = Student::where('id',$param[0])
+    ->update(['name' => $param[1]]);
     return $user;
   }
 
@@ -33,7 +33,7 @@ class Student extends Eloquent
 
   public function delete($param)
   {
-   $user = Student::where($param[0], $param[1])->delete();
+   $user = Student::where('id', $param[0])->delete();
    return $user;
   }
 }

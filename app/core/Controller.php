@@ -11,6 +11,7 @@ class Controller
   protected $params = [];
   public $smrt;
   public $modelName;
+  public static $id;
 
   public function __construct()
   {
@@ -26,26 +27,7 @@ class Controller
     {
     $_SESSION['model'] =  $post["model"];
     }
-
-    if (!empty($post["method"]))
-    {
-    $_SESSION['method'] =  $post["method"];
-    }
-
-    return array($_SESSION['model'],$_SESSION['method']);
-
-  }
-
-  public function view2($post, $arr)
-  {
-    if($arr[0]!=NUll && $arr[1]!=NUll)
-    {
-      $this->smrt->smarty->display("../app/views/templates/".$_SESSION['method'] . ".tpl");
-      $url = $post;
-      echo 'data in url is';
-      print_r($url);
-      return $url;
-    }
+    return array($_SESSION['model']);
   }
 
   public function getcontroller($url,$arr)
@@ -55,11 +37,15 @@ class Controller
       $this->controller = $arr[0]."Controller";
       require_once'../app/controllers/'.$this->controller .'.php' ;
       $this->controller = ucfirst($this->controller);
-      echo "Controller name is " . $this->controller;
 
       $this->controller = new $this->controller;
 
       $this->modelName = $this->controller->getMethod();
+      if(!isset($arr[1]))
+      {
+        $arr[1] = 'listTable';
+      }
+
       $da = new ModelFactory($arr,$url);
       $pa = $url ? array_values($url) : [] ;
 
@@ -67,7 +53,16 @@ class Controller
       return $data;
     }
   }
-  //  session_destroy();
+  public function view2($id, $method)
+  {
+    echo ob_get_clean();
+    flush();
+    ob_start(); 
+    $this->smrt->smarty->assign('id',$id);
+    $this->smrt->smarty->assign('method',$method);
+    $this->smrt->smarty->display("../app/views/templates/". $method .".tpl");
+
+  }
 
   public function view($data)
   {
