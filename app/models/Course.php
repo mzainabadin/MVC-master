@@ -9,14 +9,16 @@ class Course extends Eloquent
 
   public function add($param)
   {
-    return $user = Course::create([$param[0] => $param[1]]);
+    $user = Course::create(['name' => $param[1]]);
+
+    return $user;
   }
 
 
   public function edit($param)
   {
 
-    $user = Student::where('id',$param[0])
+    $user = Course::where('id',$param[0])
     ->update(['name' => $param[1]]);
     return $user;
   }

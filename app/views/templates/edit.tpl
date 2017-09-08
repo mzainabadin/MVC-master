@@ -2,7 +2,7 @@
   <table border="1">
 
     <tr>
-      <td><span>Enter Updated value</span></td>
+      <td><span>Enter Updated value for id-{$id}</span></td>
       <td>
           <textarea name="Param1">{$post.Comment|escape}</textarea>
           <input type="hidden" name="id" value="{$id}"/>

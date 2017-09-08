@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-09-08 15:54:29
-  from "/var/www/html/MVC1-master/app/views/templates/listTableStudent.tpl" */
+/* Smarty version 3.1.30, created on 2017-09-08 17:40:59
+  from "/var/www/html/MVC1-master/app/views/templates/listTable.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59b276e568df16_87149104',
+  'unifunc' => 'content_59b28fdbc8d930_37228483',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '5b76cc52b05a395c237a34c45770a533a673fab5' => 
+    'edd01f8738a6cb1883a0bcd66fa2e79bfc4e27e2' => 
     array (
-      0 => '/var/www/html/MVC1-master/app/views/templates/listTableStudent.tpl',
-      1 => 1504868064,
+      0 => '/var/www/html/MVC1-master/app/views/templates/listTable.tpl',
+      1 => 1504873450,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59b276e568df16_87149104 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59b28fdbc8d930_37228483 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_cycle')) require_once '/var/www/html/MVC1-master/app/smarty/plugins/function.cycle.php';
 ?>
 
@@ -62,6 +62,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['i']->value) {
           <input type="submit" value="add">
       </form>
     </td>
+
  </tr>
 <?php
 }

@@ -9,14 +9,16 @@ class Teacher extends Eloquent
 
   public function add($param)
   {
-    return $user = Teacher::create([$param[0] => $param[1]]);
+    $user = Teacher::create(['name' => $param[1]]);
+
+    return $user;
   }
 
 
   public function edit($param)
   {
 
-    $user = Student::where('id',$param[0])
+    $user = Teacher::where('id',$param[0])
     ->update(['name' => $param[1]]);
     return $user;
   }
@@ -26,7 +28,6 @@ class Teacher extends Eloquent
     $users = Teacher::all();
     return $users;
   }
-
 
   public function delete($param)
   {

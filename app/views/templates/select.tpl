@@ -1,7 +1,7 @@
 
 {* Smarty *}
 
-<form action="" method="post">
+<form action="http://localhost/MVC1-master/public/" method="post">
   <table border="1">
     {if $error ne ""}
       <tr>
