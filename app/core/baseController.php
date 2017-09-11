@@ -17,7 +17,13 @@ class baseController extends Controller
   {
 
   }
-
+  /**
+  *View 1 is called to select the model name
+  *
+  *@param POST and GET variables
+  *
+  *@return array containing session variable have model name in it
+  **/
   public function view1($post = null,$get = null)
   {
     $this->smrt =new SmartyHeader();
@@ -30,6 +36,14 @@ class baseController extends Controller
     return array($_SESSION['model']);
   }
 
+  /**
+  *Gets the name of model and call the controller accordingly.
+  *then calls model factory and pass it the required model name.
+  *
+  *@param arr[] containing model name
+  *
+  *@return object of the desired model returned by model factory
+  **/
   public function getcontroller($url,$arr)
   {
     if(file_exists('../app/controllers/' . $arr[0] . 'Controller.php'))
@@ -52,6 +66,14 @@ class baseController extends Controller
       return $data;
     }
   }
+  /**
+  *Calls the smarty view according to the requested method by user.
+  *In this view data is get through user and passed to other functions via POST.
+  *
+  *@param method to be called, id
+  *
+  *@return
+  **/
   public function view2($id, $method)
   {
     $this->smrt->smarty->assign('id',$id);
@@ -59,7 +81,14 @@ class baseController extends Controller
     $this->smrt->smarty->display("../app/views/templates/". $method .".tpl");
 
   }
-
+  /**
+  *This view function display the list view of desired table with Edit,Delete and add buttons
+  *If button is pressed then primary key with method name is fetched via POST.
+  *
+  *@param object of desired model returned by model factory
+  *
+  *@return
+  **/
   public function view($data)
   {
     $this->smrt->smarty->assign('user',$data);

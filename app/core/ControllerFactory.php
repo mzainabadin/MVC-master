@@ -18,9 +18,7 @@ class ControllerFactory
   **/
   public function __construct($post = null,$get = null )
   {
-      //ob_start();
       $this->controller = new Controller;
-      //ob_clean();
       $this->controller->callcontrol($post = null,$get = null);
       return $this->controller;
 
