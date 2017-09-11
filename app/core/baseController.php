@@ -38,15 +38,17 @@ class baseController extends Controller
       require_once'../app/controllers/'.$this->controller .'.php' ;
       $this->controller = ucfirst($this->controller);
       $this->controller = new $this->controller;
+
       $this->modelName = $this->controller->getMethod();
       if(!isset($arr[1]))
       {
         $arr[1] = 'listTable';
       }
-      $modelObj = new ModelFactory($arr,$url);
-      $param = $url ? array_values($url) : [] ;
 
-      $data =  $modelObj->index($arr[0],$arr[1],$param);
+      $da = new ModelFactory($arr,$url);
+      $pa = $url ? array_values($url) : [] ;
+
+      $data =  $da->index($arr[0],$arr[1],$pa);
       return $data;
     }
   }
@@ -60,7 +62,6 @@ class baseController extends Controller
 
   public function view($data)
   {
-    require_once'../app/views/templates/listTable.tpl';
     $this->smrt->smarty->assign('user',$data);
     $this->smrt->smarty->display("../app/views/templates/listTable.tpl");
   }

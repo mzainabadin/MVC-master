@@ -29,9 +29,9 @@ class Controller
     {
       ob_start();
       $this->controller = new baseController;
+
       $arr = $this->controller->view1($_POST,$_GET);
-    //  if($_POST<>array())
-      if(isset($_POST[model]))
+      if($_POST<>array())
       {
         if( (isset($arr[0])))
         {

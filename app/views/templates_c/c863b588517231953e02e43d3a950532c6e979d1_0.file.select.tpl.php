@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-09-08 15:08:11
+/* Smarty version 3.1.30, created on 2017-09-08 20:09:07
   from "/var/www/html/MVC1-master/app/views/templates/select.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59b26c0bba71a2_45502522',
+  'unifunc' => 'content_59b2b293826088_60590774',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c863b588517231953e02e43d3a950532c6e979d1' => 
     array (
       0 => '/var/www/html/MVC1-master/app/views/templates/select.tpl',
-      1 => 1504865289,
+      1 => 1504883344,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59b26c0bba71a2_45502522 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59b2b293826088_60590774 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
 
-<form action="http://localhost/MVC1-master/public/" method="post">
+<form action="" method="post">
   <table border="1">
     <?php if ($_smarty_tpl->tpl_vars['error']->value != '') {?>
       <tr>
