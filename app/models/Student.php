@@ -1,6 +1,9 @@
 <?php
+
+require_once'Course.php';
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Capsule\Manager as Capsule;
+
 class Student extends Eloquent
 {
 
@@ -26,7 +29,6 @@ class Student extends Eloquent
   public function listTable()
   {
     $users = Student::all();
-  //  print_r($users);
     return $users;
   }
 
@@ -35,6 +37,18 @@ class Student extends Eloquent
   {
    $user = Student::where('id', $param[0])->delete();
    return $user;
+  }
+  public function courses($param)
+  {
+
+      $users = Student::find($param[0]);
+      $data = $users->belongsToMany('Course')->getResults();
+      echo $data->toJson();
+      return $data;
+
+      //$user = Student::find();
+
+
   }
 }
 

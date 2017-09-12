@@ -1,5 +1,6 @@
 <?php
 
+require_once'Student.php';
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Capsule\Manager as Capsule;
 class Course extends Eloquent
@@ -35,6 +36,11 @@ class Course extends Eloquent
   {
    $user = Course::where('id', $param[0])->delete();
    return $user;
+  }
+
+  public function students()
+  {
+      return $this->belongsToMany('Student');
   }
 }
 

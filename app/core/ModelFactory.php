@@ -32,6 +32,8 @@ class ModelFactory
     }
      $this->params = $url ? array_values($url) : [] ;
      $this->model = new $this->model;
+    //  var_dump($this->model);
+
     // $data = $this->index($this->model,$this->method,$this->params);
      //return $data;
 }
@@ -45,6 +47,7 @@ class ModelFactory
   **/
   public function index($models,$methodName,$params)
   {
+
     if(method_exists($models, $methodName))
     {
       $data =  $this->model->$methodName($params);

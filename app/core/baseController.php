@@ -3,6 +3,7 @@ require_once'ModelFactory.php';
 require_once'Controller.php';
 require_once'SmartyHeader.php';
 
+
 class baseController extends Controller
 {
   protected $controller = '';
@@ -58,12 +59,12 @@ class baseController extends Controller
       {
         $arr[1] = 'listTable';
       }
-
       $da = new ModelFactory($arr,$url);
       $pa = $url ? array_values($url) : [] ;
 
       $data =  $da->index($arr[0],$arr[1],$pa);
       return $data;
+
     }
   }
   /**
@@ -93,6 +94,14 @@ class baseController extends Controller
   {
     $this->smrt->smarty->assign('user',$data);
     $this->smrt->smarty->display("../app/views/templates/listTable.tpl");
+  }
+  public function viewdetail($id,$method,$data1)
+  {
+    echo 'in view datail function';
+    $this->smrt->smarty->assign('id',$id);
+    $this->smrt->smarty->assign('method',$method);
+    $this->smrt->smarty->assign('user',$data1);
+    $this->smrt->smarty->display("../app/views/templates/courses.tpl");
   }
 }
 

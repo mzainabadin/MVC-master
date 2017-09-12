@@ -10,7 +10,6 @@ class Teacher extends Eloquent
   public function add($param)
   {
     $user = Teacher::create(['name' => $param[1]]);
-
     return $user;
   }
 

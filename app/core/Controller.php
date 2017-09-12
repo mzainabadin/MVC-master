@@ -2,6 +2,8 @@
 require_once'ModelFactory.php';
 require_once'baseController.php';
 require_once'SmartyHeader.php';
+require_once'../app/models/Student.php';
+
 
 class Controller
 {
@@ -50,7 +52,8 @@ class Controller
 
         $_SESSION['id'] =  $_POST["id"];
         $arr[1] = $_POST[method];
-        if(isset($_POST[id]))
+
+        if(isset($_POST[id]) && $_POST[method]<>'detail' && $_POST[method]<>'courses')
         {
           $this->controller->view2($_SESSION['id'], $_POST[method]);
           $url = array($_POST['id'],$_POST[Param1]);
@@ -58,6 +61,16 @@ class Controller
           $data = $this->controller->getcontroller($url,$arr);
           unset($arr[1]);
         }
+        if(isset($_POST[id]) && $_POST[method]=='courses')
+        {
+
+          $url = array($_POST['id'],$_POST[Param1]);
+          $arr[1]= $_POST[method];
+          $data1 = $this->controller->getcontroller($url,$arr);
+          $this->controller->viewdetail($_SESSION['id'], $_POST[method],$data1);
+          unset($arr[1]);
+        }
+
       }
       self::$c = self::$c + 1;
     }
