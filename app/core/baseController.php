@@ -53,16 +53,14 @@ class baseController extends Controller
       require_once'../app/controllers/'.$this->controller .'.php' ;
       $this->controller = ucfirst($this->controller);
       $this->controller = new $this->controller;
-
-      $this->modelName = $this->controller->getMethod();
-      if(!isset($arr[1]))
+      $this->modelName = $this->controller->getModelname();
+      if(!isset($arr[1]) && $arr[0]<>'course_student')
       {
         $arr[1] = 'listTable';
       }
-      $da = new ModelFactory($arr,$url);
-      $pa = $url ? array_values($url) : [] ;
-
-      $data =  $da->index($arr[0],$arr[1],$pa);
+      $modelFactoryObject = new ModelFactory($arr,$url);
+      $parameters = $url ? array_values($url) : [] ;
+      $data =  $modelFactoryObject->index($arr[0],$arr[1],$parameters);
       return $data;
 
     }
@@ -95,13 +93,22 @@ class baseController extends Controller
     $this->smrt->smarty->assign('user',$data);
     $this->smrt->smarty->display("../app/views/templates/listTable.tpl");
   }
+
+
   public function viewdetail($id,$method,$data1)
   {
-    echo 'in view datail function';
     $this->smrt->smarty->assign('id',$id);
     $this->smrt->smarty->assign('method',$method);
     $this->smrt->smarty->assign('user',$data1);
     $this->smrt->smarty->display("../app/views/templates/courses.tpl");
+  }
+
+  public function addcourseview($id,$method,$model)
+  {
+    $this->smrt->smarty->assign('id',$id);
+    $this->smrt->smarty->assign('method',$method);
+    $this->smrt->smarty->assign('model',$model);
+    $this->smrt->smarty->display("../app/views/templates/addCourseStudent.tpl");
   }
 }
 

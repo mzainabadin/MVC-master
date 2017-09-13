@@ -21,21 +21,14 @@ class ModelFactory
   {
     $this->model = ucfirst($arr[0]);
     $this->method = $url[method];
-
-    echo $this->model;
-
+    if(!isset($url[method]))
+    {
+      $this->method = $arr[1];
+    }
     require_once'../app/models/' . $this->model . '.php';
 
-    if(isset($this->method))
-    {
-      $this->method = $this->method ;
-    }
-     $this->params = $url ? array_values($url) : [] ;
-     $this->model = new $this->model;
-    //  var_dump($this->model);
-
-    // $data = $this->index($this->model,$this->method,$this->params);
-     //return $data;
+    $this->params = $url ? array_values($url) : [] ;
+    $this->model = new $this->model;
 }
   /**
   *Index function calls the required mmethod
@@ -45,17 +38,13 @@ class ModelFactory
   *
   *@return object of method
   **/
-  public function index($models,$methodName,$params)
+  public function index($model,$methodName,$params)
   {
 
-    if(method_exists($models, $methodName))
+    if(method_exists($model, $methodName))
     {
       $data =  $this->model->$methodName($params);
       return $data;
-    }
-    else
-    {
-      echo 'method does not exist';
     }
   }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Support\Facades\DB;
 
 
-class StudentController extends Controller
+class Course_studentController extends Controller
 {
 
   public $model;
@@ -14,7 +14,7 @@ class StudentController extends Controller
   }
   public function getModelname()
   {
-    $this->model = 'Student';
+    $this->model = 'Course_student';
     return $this->model;
   }
 

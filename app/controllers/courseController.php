@@ -12,7 +12,7 @@ class CourseController extends Controller
   {
      parent::__construct();
   }
-  public function getMethod()
+  public function getModelname()
   {
     $this->model = 'Course';
     return $this->model;

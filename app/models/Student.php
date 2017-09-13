@@ -38,12 +38,11 @@ class Student extends Eloquent
    $user = Student::where('id', $param[0])->delete();
    return $user;
   }
+
   public function courses($param)
   {
-
       $users = Student::find($param[0]);
-      $data = $users->belongsToMany('Course')->getResults();
-      echo $data->toJson();
+      $data = $users->belongsToMany('Course','course_students')->getResults();
       return $data;
 
       //$user = Student::find();
